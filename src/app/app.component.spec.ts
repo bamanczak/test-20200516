@@ -9,8 +9,12 @@ describe('AppComponent', () => {
     component = new AppComponent();
   }));
 
-  it('Aplikacja powinna akceptować prawidłowy PESEL', () => {
+  it('Aplikacja powinna akceptować prawidłowy PESEL dla XX wieku', () => {
     expect(component.isValidPesel('64042999928')).toBe(true);
+  });
+
+  it('Aplikacja powinna akceptować prawidłowy PESEL dla XXI wieku', () => {
+    expect(component.isValidPesel('64242999924')).toBe(true);
   });
 
   it('Aplikacja powinna odrzucić PESEL z nieprawidłową cyfrą kontrolną', () => {
