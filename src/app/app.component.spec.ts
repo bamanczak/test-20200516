@@ -9,18 +9,12 @@ describe('AppComponent', () => {
     component = new AppComponent();
   }));
 
-  it('should accept valid PESEL numbers', () => {
-    expect(component.isValidPesel('64042999928')).toBe(false);
-    expect(component.isValidPesel('52022114478')).toBe(false);
-    expect(component.isValidPesel('72021706812')).toBe(false);
-    expect(component.isValidPesel('80042448774')).toBe(false);
-    expect(component.isValidPesel('97031003029')).toBe(false);
+  it('Aplikacja powinna akceptować prawidłowy PESEL', () => {
+    expect(component.isValidPesel('64042999928')).toBe(true);
   });
 
-  it('should reject PESEL numbers with invalid controlNumber', () => {
-    expect(component.isValidPesel('44051401358')).toBe(true);
-    expect(component.isValidPesel('97031003021')).toBe(true);
-    expect(component.isValidPesel('97031003023')).toBe(true);
+  it('Aplikacja powinna odrzucić PESEL z nieprawidłową cyfrą kontrolną', () => {
+    expect(component.isValidPesel('64042999929')).toBe(false);
   });
 
 });
