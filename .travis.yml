@@ -11,3 +11,10 @@ script:
   - ng lint
   - ng test --watch=false --browsers=ChromeHeadless
   - ng build --prod
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/pesel
+  on:
+    branch: master
